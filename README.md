@@ -1,5 +1,9 @@
 # UrlShortenerBundle
 
+[![Latest Version on Packagist][ico-version]][link-packagist]
+[![Software License][ico-license]](LICENSE.md)
+[![Build Status][ico-travis]][link-travis]
+
 ## Getting started
 
 ```
@@ -148,3 +152,10 @@ So, In this project decide to using "Attemp 4" by using [Hashids](http://hashids
   - [Practical uses of bloom filter – SPAM filter and URL shortener and Weak Password Dict](https://theworldsoldestintern.wordpress.com/2012/11/03/practical-uses-of-bloom-filter-spam-filter-and-url-shortener/)
   - [Bloom Filters by Example](https://llimllib.github.io/bloomfilter-tutorial/)
   - [What is the advantage to using bloom filters?](http://stackoverflow.com/questions/4282375/what-is-the-advantage-to-using-bloom-filters)
+
+[ico-version]: https://img.shields.io/packagist/v/leopardd/url-shortener-bundle.svg?style=flat-square
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/leopardd/UrlShortenerBundle/master.svg?style=flat-square
+
+[link-packagist]: https://packagist.org/packages/leopardd/url-shortener-bundle
+[link-travis]: https://travis-ci.org/leopardd/UrlShortenerBundle
