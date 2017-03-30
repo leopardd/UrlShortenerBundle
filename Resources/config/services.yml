@@ -1,0 +1,40 @@
+parameters:
+    leopardd_url_shortener.hashids.salt: this is my salt
+    leopardd_url_shortener.hashids.min_length: 5
+    leopardd_url_shortener.hashids.alphabet: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890
+    leopardd_url_shortener.class.entity: Leopardd\Bundle\UrlShortenerBundle\Entity\ShortUrl
+    leopardd_url_shortener.class.factory: Leopardd\Bundle\UrlShortenerBundle\Factory\ShortUrlFactory
+    leopardd_url_shortener.class.repository: Leopardd\Bundle\UrlShortenerBundle\Repository\ShortUrlRepository
+
+services:
+    leopardd_url_shortener.hash.hashid:
+        class: Hashids\Hashids
+        arguments:
+            - "%leopardd_url_shortener.hashids.salt%"
+            - "%leopardd_url_shortener.hashids.min_length%"
+            - "%leopardd_url_shortener.hashids.alphabet%"
+
+    leopardd_url_shortener.factory.short_url:
+        class: "%leopardd_url_shortener.class.factory%"
+        arguments:
+            - "%leopardd_url_shortener.class.entity%"
+
+    leopardd_url_shortener.repository.short_url:
+        class: "%leopardd_url_shortener.class.repository%"
+        factory: 'doctrine.orm.entity_manager:getRepository'
+        arguments:
+            - "%leopardd_url_shortener.class.entity%"
+
+    leopardd_url_shortener.service.encode:
+        class: Leopardd\Bundle\UrlShortenerBundle\Service\EncodeService
+        arguments:
+            - "@leopardd_url_shortener.hash.hashid"
+            - "@leopardd_url_shortener.repository.short_url"
+            - "@event_dispatcher"
+
+    leopardd_url_shortener.service.redirect:
+        class: Leopardd\Bundle\UrlShortenerBundle\Service\RedirectService
+        arguments:
+            - "@leopardd_url_shortener.hash.hashid"
+            - "@leopardd_url_shortener.repository.short_url"
+            - "@event_dispatcher"

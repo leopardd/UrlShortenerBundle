@@ -1,0 +1,4 @@
+suites:
+    acme_suite:
+        namespace: Leopardd\Bundle\UrlShortenerBundle
+        psr4_prefix: Leopardd\Bundle\UrlShortenerBundle
