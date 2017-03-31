@@ -54,6 +54,7 @@ Service.................contain business logic
 ## Feature & Update & Note
 
 - [x] Example project: [leopardd/bitly](https://github.com/leopardd/bitly)
+- [x] Support PHP 5.6, 7.0
 - [ ] Message queue
 - [ ] Caching (e.g. Redis)
 - Scaling
@@ -80,6 +81,9 @@ Service.................contain business logic
   - [ ] [Ph3nol/UrlShortenerBundle](https://github.com/Ph3nol/UrlShortenerBundle)
   - [ ] [mremi/UrlShortenerBundle](https://github.com/mremi/UrlShortenerBundle)
   - [x] gomeeki/url-shortener-bundle](https://github.com/gomeeki/url-shortener-bundle/)
+- Test
+  - [x] phpspec
+  - [x] PHP CodeSniffer
 
 ## Algorithm
 
