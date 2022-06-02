@@ -5,6 +5,7 @@ leopardd_url_shortener_redirect:
     requirements:
         code: \S+
 
+
 leopardd_url_shortener_encode:
     path: /
     controller: Leopardd\Bundle\UrlShortenerBundle\Controller\EncodeController::indexAction
