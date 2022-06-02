@@ -7,6 +7,21 @@ parameters:
     leopardd_url_shortener.class.repository: Leopardd\Bundle\UrlShortenerBundle\Repository\ShortUrlRepository
 
 services:
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    Leopardd\Bundle\UrlShortenerBundle\:
+        resource: '../../'
+        exclude:
+            - '../../DependencyInjection/'
+            - '../../Resources/'
+            - '../../Tests/'
+            - '../../spec/'
+            - '../../Event/'
+            - '../../Exception/'
+            - '../../Entity/'
+
     leopardd_url_shortener.hash.hashid:
         class: Hashids\Hashids
         arguments:
