@@ -9,6 +9,11 @@ use Leopardd\Bundle\UrlShortenerBundle\Exception\InvalidCodeException;
 
 class RedirectController extends AbstractController
 {
+
+	public function __construct(private RedirectService $redirectService)
+	{
+
+	}
     /**
      * @param string $code
      * @throws InvalidCodeException
@@ -17,9 +22,9 @@ class RedirectController extends AbstractController
     public function indexAction($code)
     {
         /** @var RedirectService $redirectService */
-        $redirectService = $this->get('leopardd_url_shortener.service.redirect');
+//        $redirectService = $this->get('leopardd_url_shortener.service.redirect');
 
-        $response = $redirectService->getRedirectResponse($code);
+        $response = $this->redirectService->getRedirectResponse($code);
         if ($response === null) throw new InvalidCodeException();
 
         return $response;

@@ -35,22 +35,22 @@ services:
         arguments:
             - "%leopardd_url_shortener.class.entity%"
 
-    leopardd_url_shortener.repository.short_url:
-#        class: "%leopardd_url_shortener.class.repository%"
-        factory: 'doctrine.orm.entity_manager:getRepository'
-        arguments:
-            - "%leopardd_url_shortener.class.entity%"
+#    leopardd_url_shortener.repository.short_url:
+##        class: "%leopardd_url_shortener.class.repository%"
+#        factory: 'doctrine.orm.entity_manager:getRepository'
+#        arguments:
+#            - "%leopardd_url_shortener.class.entity%"
 
-    leopardd_url_shortener.service.encode:
-        class: Leopardd\Bundle\UrlShortenerBundle\Service\EncodeService
-        arguments:
-            - "@leopardd_url_shortener.hash.hashid"
-            - "@leopardd_url_shortener.repository.short_url"
-            - "@event_dispatcher"
+#    leopardd_url_shortener.service.encode:
+#        class: Leopardd\Bundle\UrlShortenerBundle\Service\EncodeService
+#        arguments:
+#            - "@leopardd_url_shortener.hash.hashid"
+#            - "@leopardd_url_shortener.repository.short_url"
+#            - "@event_dispatcher"
 
-    leopardd_url_shortener.service.redirect:
-        class: Leopardd\Bundle\UrlShortenerBundle\Service\RedirectService
-        arguments:
-            - "@leopardd_url_shortener.hash.hashid"
-            - "@leopardd_url_shortener.repository.short_url"
-            - "@event_dispatcher"
+#    leopardd_url_shortener.service.redirect:
+#        class: Leopardd\Bundle\UrlShortenerBundle\Service\RedirectService
+#        arguments:
+#            - "@leopardd_url_shortener.hash.hashid"
+#            - "@leopardd_url_shortener.repository.short_url"
+#            - "@event_dispatcher"
