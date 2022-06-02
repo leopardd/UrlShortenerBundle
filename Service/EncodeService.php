@@ -55,7 +55,7 @@ class EncodeService
         $shortUrl = $this->shortUrlRepository->save($shortUrl);
 
         $event = new ShortUrlCreatedEvent($shortUrl);
-        $this->dispatcher->dispatch(ShortUrlEvent::SHORT_URL_CREATED, $event);
+        $this->dispatcher->dispatch($event,ShortUrlEvent::SHORT_URL_CREATED);
 
         return $shortUrl;
     }

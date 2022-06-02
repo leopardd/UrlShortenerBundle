@@ -2,12 +2,12 @@
 
 namespace Leopardd\Bundle\UrlShortenerBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Leopardd\Bundle\UrlShortenerBundle\Service\RedirectService;
 use Leopardd\Bundle\UrlShortenerBundle\Exception\InvalidCodeException;
 
-class RedirectController extends Controller
+class RedirectController extends AbstractController
 {
     /**
      * @param string $code

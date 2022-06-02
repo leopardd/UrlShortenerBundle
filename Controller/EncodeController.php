@@ -2,15 +2,15 @@
 
 namespace Leopardd\Bundle\UrlShortenerBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Leopardd\Bundle\UrlShortenerBundle\Factory\ShortUrlFactory;
 use Leopardd\Bundle\UrlShortenerBundle\Service\EncodeService;
 use Leopardd\Bundle\UrlShortenerBundle\Exception\InvalidUrlException;
 
-class EncodeController extends Controller
+class EncodeController extends AbstractController
 {
     /**
      * @param Request $request
