@@ -2,6 +2,7 @@
     "name": "respawnsive/url-shortener-bundle",
     "description": "Symfony Bundle to generate and redirect short url",
     "version": "1.1.0",
+    "stability": "stable",
     "type": "symfony-bundle",
     "license": "MIT",
     "keywords": [
