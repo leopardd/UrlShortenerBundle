@@ -17,7 +17,7 @@ class ShortUrlFactory implements ShortUrlFactoryInterface
      * ShortUrlFactory constructor.
      * @param string $shortUrl shortUrl class
      */
-    public function __construct($shortUrl)
+    public function __construct($shortUrl = 'ShortUrl')
     {
         $this->shortUrl = new $shortUrl();
     }
