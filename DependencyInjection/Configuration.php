@@ -17,9 +17,8 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('leopardd_url_shortener');
-
+        $builder = new TreeBuilder('leopardd_url_shortener');
+	    $rootNode = $builder->getRootNode();
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
@@ -34,6 +33,6 @@ class Configuration implements ConfigurationInterface
             ->end()
             ->end();
 
-        return $treeBuilder;
+        return $builder;
     }
 }
