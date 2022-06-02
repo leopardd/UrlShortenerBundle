@@ -1,5 +1,5 @@
 {
-    "name": "leopardd/url-shortener-bundle",
+    "name": "respawnsive/url-shortener-bundle",
     "description": "Symfony Bundle to generate and redirect short url",
     "version": "1.1.0",
     "type": "symfony-bundle",
