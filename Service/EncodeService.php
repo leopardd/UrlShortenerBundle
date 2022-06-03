@@ -8,6 +8,7 @@ use Leopardd\Bundle\UrlShortenerBundle\Entity\ShortUrlInterface;
 use Leopardd\Bundle\UrlShortenerBundle\Repository\ShortUrlRepositoryInterface;
 use Leopardd\Bundle\UrlShortenerBundle\Event\ShortUrlEvent;
 use Leopardd\Bundle\UrlShortenerBundle\Event\ShortUrlCreatedEvent;
+use Symfony\Component\Routing\RouterInterface;
 
 /**
  * Class EncodeService
@@ -22,11 +23,18 @@ class EncodeService
      * @param ShortUrlRepositoryInterface $shortUrlRepository
      * @param EventDispatcherInterface $dispatcher
      */
-    public function __construct(private Hashids $hashids, private ShortUrlRepositoryInterface $shortUrlRepository, private EventDispatcherInterface $dispatcher)
+    public function __construct(private Hashids $hashids, private ShortUrlRepositoryInterface $shortUrlRepository, private EventDispatcherInterface $dispatcher,private RouterInterface $router)
     {
 
     }
 
+
+	public function getShortUrl($shortUrl)
+	{
+
+		return $this->router->generate('leopardd_url_shortener_redirect',['code' => $shortUrl->getCode() ]) ;
+
+	}
     /**
      * @param ShortUrlInterface $shortUrl
      * @return ShortUrlInterface
