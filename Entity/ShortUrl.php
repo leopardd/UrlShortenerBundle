@@ -27,7 +27,7 @@ class ShortUrl implements ShortUrlInterface
     /**
      * @var string
      * @Assert\NotBlank(message="The code should not be blank")
-     * @ORM\Column(name="code", type="text", unique=true, nullable=true, options={"collation":"utf8_bin"})
+     * @ORM\Column(name="code", type="string", unique=true, nullable=true, options={"collation":"utf8_bin"})
      * @JMS\Expose()
      */
     protected $code;
@@ -39,7 +39,7 @@ class ShortUrl implements ShortUrlInterface
      *   max = 2000,
      *   maxMessage = "The url cannot be longer than {{ limit }} characters"
      * )
-     * @ORM\Column(name="url", type="string", length=2000)
+     * @ORM\Column(name="url", type="text", length=2000)
      * @JMS\Expose()
      */
     protected $url;
