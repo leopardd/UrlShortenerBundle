@@ -10,6 +10,7 @@ services:
 
     Leopardd\Bundle\UrlShortenerBundle\Controller\:
         resource: '../../Controller/'
+        tags: ['controller.service_arguments']
 
     leopardd_url_shortener.hash.hashid:
         class: Hashids\Hashids
