@@ -36,10 +36,10 @@ class ShortUrl implements ShortUrlInterface
      * @var string
      * @Assert\NotBlank(message="The url should not be blank")
      * @Assert\Length(
-     *   max = 255,
+     *   max = 2000,
      *   maxMessage = "The url cannot be longer than {{ limit }} characters"
      * )
-     * @ORM\Column(name="url", type="string", length=255)
+     * @ORM\Column(name="url", type="string", length=2000)
      * @JMS\Expose()
      */
     protected $url;
