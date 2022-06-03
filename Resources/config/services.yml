@@ -43,8 +43,9 @@ services:
 
     leopardd_url_shortener.repository.short_url:
         class: "%leopardd_url_shortener.class.repository%"
-        factory: 'doctrine.orm.entity_manager:getRepository'
+#        factory: 'doctrine.orm.entity_manager:getRepository'
         arguments:
+            - 'doctrine.doctrine.orm.entity_manager'
             - "%leopardd_url_shortener.class.entity%"
 
 
