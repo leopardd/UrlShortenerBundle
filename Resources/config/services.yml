@@ -32,7 +32,7 @@ services:
     leopardd_url_shortener.factory.short_url:
         class: "%leopardd_url_shortener.class.factory%"
         arguments:
-            - "%leopardd_url_shortener.class.entity%"
+            - "ShortUrl"
 
     leopardd_url_shortener.repository.short_url:
         class: "%leopardd_url_shortener.class.repository%"
