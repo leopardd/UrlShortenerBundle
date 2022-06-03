@@ -29,10 +29,10 @@ class EncodeService
     }
 
 
-	public function getShortUrl($shortUrl)
+	public function getShortUrl($shortUrl,$referenceType = RouterInterface::ABSOLUTE_URL) // absolute url
 	{
 
-		return $this->router->generate('leopardd_url_shortener_redirect',['code' => $shortUrl->getCode() ]) ;
+		return $this->router->generate('leopardd_url_shortener_redirect',['code' => $shortUrl->getCode() ] , $referenceType) ;
 
 	}
     /**
