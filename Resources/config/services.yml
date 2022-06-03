@@ -30,7 +30,7 @@ services:
             - "%leopardd_url_shortener.hashids.alphabet%"
 
     leopardd_url_shortener.class.factory:
-        class: '%leopardd_url_shortener.class.factory%'
+        class: Leopardd\Bundle\UrlShortenerBundle\Factory\ShortUrlFactory
         arguments:
             - "ShortUrl"
 
