@@ -15,14 +15,6 @@ use Leopardd\Bundle\UrlShortenerBundle\Event\ShortUrlCreatedEvent;
  */
 class EncodeService
 {
-    /** @var Hashids */
-    private $hashids;
-
-    /** @var ShortUrlRepositoryInterface */
-    private $shortUrlRepository;
-
-    /** @var EventDispatcherInterface */
-    private $dispatcher;
 
     /**
      * ProcessShortUrlService constructor.
@@ -30,11 +22,9 @@ class EncodeService
      * @param ShortUrlRepositoryInterface $shortUrlRepository
      * @param EventDispatcherInterface $dispatcher
      */
-    public function __construct($hashids, $shortUrlRepository, $dispatcher)
+    public function __construct(private Hashids $hashids, private ShortUrlRepositoryInterface $shortUrlRepository, private EventDispatcherInterface $dispatcher)
     {
-        $this->hashids = $hashids;
-        $this->shortUrlRepository = $shortUrlRepository;
-        $this->dispatcher = $dispatcher;
+
     }
 
     /**
