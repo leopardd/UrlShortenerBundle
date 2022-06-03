@@ -10,6 +10,12 @@ services:
 
     Leopardd\Bundle\UrlShortenerBundle\Factory\ShortUrlFactory: '@leopardd_url_shortener.factory.short_url'
 
+    Leopardd\Bundle\UrlShortenerBundle\Service\:
+        resource: '../../Service/'
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: true
+
     Leopardd\Bundle\UrlShortenerBundle\Controller\:
         resource: '../../Controller/'
         autowire: true      # Automatically injects dependencies in your services.
