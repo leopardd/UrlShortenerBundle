@@ -1,6 +1,6 @@
 {
     "name": "leopardd/url-shortener-bundle",
-    "description": "Symfony Bundle to generate and redirect short url",
+    "description": "Symfony Bundle to generate and redirect short url working with symfony 5 and php 8",
     "version": "dev-master",
     "type": "symfony-bundle",
     "minimum-stability": "stable",
