@@ -12,11 +12,6 @@ services:
     Hashids\Hashids: '@leopardd_url_shortener.hash.hashid'
     Leopardd\Bundle\UrlShortenerBundle\Repository\ShortUrlRepositoryInterface: '@leopardd_url_shortener.repository.short_url'
 
-    Leopardd\Bundle\UrlShortenerBundle\Service\:
-        resource: '../../Service/'
-        autowire: true      # Automatically injects dependencies in your services.
-        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
-        public: true
 
     Leopardd\Bundle\UrlShortenerBundle\Controller\:
         resource: '../../Controller/'
@@ -48,16 +43,16 @@ services:
             - "%leopardd_url_shortener.class.entity%"
 
 
-#    leopardd_url_shortener.service.encode:
-#        class: Leopardd\Bundle\UrlShortenerBundle\Service\EncodeService
-#        arguments:
-#            - "@leopardd_url_shortener.hash.hashid"
-#            - "@leopardd_url_shortener.repository.short_url"
-#            - "@event_dispatcher"
+    leopardd_url_shortener.service.encode:
+        class: Leopardd\Bundle\UrlShortenerBundle\Service\EncodeService
+        arguments:
+            - "@leopardd_url_shortener.hash.hashid"
+            - "@leopardd_url_shortener.repository.short_url"
+            - "@event_dispatcher"
 #
-#    leopardd_url_shortener.service.redirect:
-#        class: Leopardd\Bundle\UrlShortenerBundle\Service\RedirectService
-#        arguments:
-#            - "@leopardd_url_shortener.hash.hashid"
-#            - "@leopardd_url_shortener.repository.short_url"
-#            - "@event_dispatcher"
+    leopardd_url_shortener.service.redirect:
+        class: Leopardd\Bundle\UrlShortenerBundle\Service\RedirectService
+        arguments:
+            - "@leopardd_url_shortener.hash.hashid"
+            - "@leopardd_url_shortener.repository.short_url"
+            - "@event_dispatcher"
