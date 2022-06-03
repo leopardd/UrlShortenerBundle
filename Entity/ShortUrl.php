@@ -27,7 +27,7 @@ class ShortUrl implements ShortUrlInterface
     /**
      * @var string
      * @Assert\NotBlank(message="The code should not be blank")
-     * @ORM\Column(name="code", type="string", unique=true, nullable=true, options={"collation":"utf8_bin"})
+     * @ORM\Column(name="code", type="text", unique=true, nullable=true, options={"collation":"utf8_bin"})
      * @JMS\Expose()
      */
     protected $code;
