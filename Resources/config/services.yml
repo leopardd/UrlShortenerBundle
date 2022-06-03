@@ -8,10 +8,7 @@ parameters:
 
 services:
 
-    leopardd_url_shortener.factory.short_url:
-        class: "%leopardd_url_shortener.class.factory%"
-        arguments:
-            - "%leopardd_url_shortener.class.entity%"
+    Leopardd\Bundle\UrlShortenerBundle\Factory\ShortUrlFactory: '@leopardd_url_shortener.factory.short_url'
 
     Leopardd\Bundle\UrlShortenerBundle\Controller\:
         resource: '../../Controller/'
@@ -20,12 +17,20 @@ services:
         public: false
         tags: ['controller.service_arguments']
 
+
+
     leopardd_url_shortener.hash.hashid:
         class: Hashids\Hashids
         arguments:
             - "%leopardd_url_shortener.hashids.salt%"
             - "%leopardd_url_shortener.hashids.min_length%"
             - "%leopardd_url_shortener.hashids.alphabet%"
+
+    leopardd_url_shortener.factory.short_url:
+        class: "%leopardd_url_shortener.class.factory%"
+        arguments:
+            - "%leopardd_url_shortener.class.entity%"
+
 
 
     leopardd_url_shortener.repository.short_url:
