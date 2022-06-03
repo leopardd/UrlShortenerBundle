@@ -5,7 +5,7 @@ parameters:
     leopardd_url_shortener.class.entity: Leopardd\Bundle\UrlShortenerBundle\Entity\ShortUrl
     leopardd_url_shortener.class.factory: Leopardd\Bundle\UrlShortenerBundle\Factory\ShortUrlFactory
     leopardd_url_shortener.class.repository: Leopardd\Bundle\UrlShortenerBundle\Repository\ShortUrlRepository
-
+    leopardd_url_shortener.repository.short_url: Leopardd\Bundle\UrlShortenerBundle\Factory\ShortUrlFactory
 services:
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
