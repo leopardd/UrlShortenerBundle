@@ -8,7 +8,7 @@ parameters:
 
 services:
 
-    Leopardd\Bundle\UrlShortenerBundle\Controller:
+    Leopardd\Bundle\UrlShortenerBundle\Controller\:
         resource: '../../Controller/'
 
     leopardd_url_shortener.hash.hashid:
