@@ -10,6 +10,7 @@ services:
 
     Leopardd\Bundle\UrlShortenerBundle\Factory\ShortUrlFactory: '@leopardd_url_shortener.factory.short_url'
     Hashids\Hashids: '@leopardd_url_shortener.hash.hashid'
+    Leopardd\Bundle\UrlShortenerBundle\Repository\ShortUrlRepositoryInterface: '@leopardd_url_shortener.repository.short_url'
 
     Leopardd\Bundle\UrlShortenerBundle\Service\:
         resource: '../../Service/'
