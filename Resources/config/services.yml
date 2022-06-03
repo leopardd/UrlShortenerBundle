@@ -11,6 +11,8 @@ services:
     Leopardd\Bundle\UrlShortenerBundle\Factory\ShortUrlFactory: '@leopardd_url_shortener.factory.short_url'
     Hashids\Hashids: '@leopardd_url_shortener.hash.hashid'
     Leopardd\Bundle\UrlShortenerBundle\Repository\ShortUrlRepositoryInterface: '@leopardd_url_shortener.repository.short_url'
+    Leopardd\Bundle\UrlShortenerBundle\Service\EncodeService: '@leopardd_url_shortener.service.encode'
+    Leopardd\Bundle\UrlShortenerBundle\Service\RedirectService: '@leopardd_url_shortener.service.redirect'
 
 
     Leopardd\Bundle\UrlShortenerBundle\Controller\:
