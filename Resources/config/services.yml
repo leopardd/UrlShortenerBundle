@@ -34,13 +34,11 @@ services:
         arguments:
             - "%leopardd_url_shortener.class.entity%"
 
-
-    '%leopardd_url_shortener.class.repository%' : ~
-
     leopardd_url_shortener.repository.short_url:
-#        class: "%leopardd_url_shortener.class.repository%"
-        factory: 'doctrine.orm.entity_manager:getRepository'
+        class: "%leopardd_url_shortener.class.repository%"
+#        factory: 'doctrine.orm.entity_manager:getRepository'
         arguments:
+            - '@Doctrine\Common\Persistence\ManagerRegistry'
             - "%leopardd_url_shortener.class.entity%"
 
 #    leopardd_url_shortener.service.encode:
