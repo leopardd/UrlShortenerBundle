@@ -10,6 +10,9 @@ services:
 
     Leopardd\Bundle\UrlShortenerBundle\Controller\:
         resource: '../../Controller/'
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: false
         tags: ['controller.service_arguments']
 
     leopardd_url_shortener.hash.hashid:
