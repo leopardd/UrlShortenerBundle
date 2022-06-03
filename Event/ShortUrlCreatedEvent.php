@@ -2,8 +2,8 @@
 
 namespace Leopardd\Bundle\UrlShortenerBundle\Event;
 
-use Symfony\Component\EventDispatcher\Event;
 use Leopardd\Bundle\UrlShortenerBundle\Entity\ShortUrlInterface;
+use Symfony\Contracts\EventDispatcher\Event;
 
 /**
  * Class ShortUrlCreatedEvent

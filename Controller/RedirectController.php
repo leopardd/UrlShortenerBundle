@@ -2,13 +2,18 @@
 
 namespace Leopardd\Bundle\UrlShortenerBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Leopardd\Bundle\UrlShortenerBundle\Service\RedirectService;
 use Leopardd\Bundle\UrlShortenerBundle\Exception\InvalidCodeException;
 
-class RedirectController extends Controller
+class RedirectController extends AbstractController
 {
+
+	public function __construct(private RedirectService $redirectService)
+	{
+
+	}
     /**
      * @param string $code
      * @throws InvalidCodeException
@@ -16,10 +21,8 @@ class RedirectController extends Controller
      */
     public function indexAction($code)
     {
-        /** @var RedirectService $redirectService */
-        $redirectService = $this->get('leopardd_url_shortener.service.redirect');
 
-        $response = $redirectService->getRedirectResponse($code);
+        $response = $this->redirectService->getRedirectResponse($code);
         if ($response === null) throw new InvalidCodeException();
 
         return $response;

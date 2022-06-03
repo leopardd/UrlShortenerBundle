@@ -7,6 +7,22 @@ parameters:
     leopardd_url_shortener.class.repository: Leopardd\Bundle\UrlShortenerBundle\Repository\ShortUrlRepository
 
 services:
+
+    Leopardd\Bundle\UrlShortenerBundle\Factory\ShortUrlFactory: '@leopardd_url_shortener.factory.short_url'
+    Hashids\Hashids: '@leopardd_url_shortener.hash.hashid'
+    Leopardd\Bundle\UrlShortenerBundle\Repository\ShortUrlRepositoryInterface: '@leopardd_url_shortener.repository.short_url'
+    Leopardd\Bundle\UrlShortenerBundle\Service\EncodeService: '@leopardd_url_shortener.service.encode'
+    Leopardd\Bundle\UrlShortenerBundle\Service\RedirectService: '@leopardd_url_shortener.service.redirect'
+
+
+    Leopardd\Bundle\UrlShortenerBundle\Controller\:
+        resource: '../../Controller/'
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: false
+        tags: ['controller.service_arguments']
+
+
     leopardd_url_shortener.hash.hashid:
         class: Hashids\Hashids
         arguments:
@@ -21,7 +37,7 @@ services:
 
     leopardd_url_shortener.repository.short_url:
         class: "%leopardd_url_shortener.class.repository%"
-        factory: 'doctrine.orm.entity_manager:getRepository'
+        factory: [ '@doctrine.orm.entity_manager' , getRepository ]
         arguments:
             - "%leopardd_url_shortener.class.entity%"
 
@@ -31,7 +47,8 @@ services:
             - "@leopardd_url_shortener.hash.hashid"
             - "@leopardd_url_shortener.repository.short_url"
             - "@event_dispatcher"
-
+            - "@router"
+#
     leopardd_url_shortener.service.redirect:
         class: Leopardd\Bundle\UrlShortenerBundle\Service\RedirectService
         arguments:

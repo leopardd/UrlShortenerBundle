@@ -16,14 +16,6 @@ use Leopardd\Bundle\UrlShortenerBundle\Exception\InvalidCodeException;
  */
 class RedirectService
 {
-    /** @var Hashids */
-    private $hashids;
-
-    /** @var ShortUrlRepositoryInterface $repository */
-    private $shortUrlRepository;
-
-    /** @var EventDispatcherInterface $dispatcher */
-    private $dispatcher;
 
     /**
      * ProcessShortUrlService constructor.
@@ -31,11 +23,9 @@ class RedirectService
      * @param ShortUrlRepositoryInterface $shortUrlRepository
      * @param EventDispatcherInterface $dispatcher
      */
-    public function __construct($hashids, $shortUrlRepository, $dispatcher)
+	public function __construct(private Hashids $hashids, private ShortUrlRepositoryInterface $shortUrlRepository, private EventDispatcherInterface $dispatcher)
     {
-        $this->hashids = $hashids;
-        $this->shortUrlRepository = $shortUrlRepository;
-        $this->dispatcher = $dispatcher;
+
     }
 
     /**
@@ -53,7 +43,7 @@ class RedirectService
         if (!$shortUrl) return null;
 
         $event = new ShortUrlRedirectedEvent($shortUrl);
-        $this->dispatcher->dispatch(ShortUrlEvent::SHORT_URL_REDIRECTED, $event);
+        $this->dispatcher->dispatch($event,ShortUrlEvent::SHORT_URL_REDIRECTED);
 
         return new RedirectResponse($shortUrl->getUrl());
     }

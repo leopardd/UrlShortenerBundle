@@ -1,11 +1,12 @@
 leopardd_url_shortener_redirect:
     path: /{code}
-    defaults: { _controller: LeoparddUrlShortenerBundle:Redirect:index }
+    controller: Leopardd\Bundle\UrlShortenerBundle\Controller\RedirectController::indexAction
     methods: GET
     requirements:
         code: \S+
 
+
 leopardd_url_shortener_encode:
     path: /
-    defaults: { _controller: LeoparddUrlShortenerBundle:Encode:index }
+    controller: Leopardd\Bundle\UrlShortenerBundle\Controller\EncodeController::indexAction
     methods: POST

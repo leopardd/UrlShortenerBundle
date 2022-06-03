@@ -11,115 +11,116 @@ use JMS\Serializer\Annotation as JMS;
  * Class ShortUrl
  * @package Leopardd\Bundle\UrlShortenerBundle\Entity
  * @ORM\Entity(repositoryClass="Leopardd\Bundle\UrlShortenerBundle\Repository\ShortUrlRepository")
- * @ORM\Table(name="short_url", indexes={@ORM\Index(name="idx", columns={"id", "url"})})
+ * @ORM\Table(name="short_url", indexes={@ORM\Index(name="idx", columns={"id", "url"}, options={"lengths": { null , 255 } })})
  */
 class ShortUrl implements ShortUrlInterface
 {
-    /**
-     * @var int
-     * @ORM\Id
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @JMS\Expose()
-     */
-    protected $id;
+	/**
+	 * @var int
+	 * @ORM\Id
+	 * @ORM\Column(name="id", type="integer")
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 * @JMS\Expose()
+	 */
+	protected $id;
 
-    /**
-     * @var string
-     * @Assert\NotBlank(message="The code should not be blank")
-     * @ORM\Column(name="code", type="string", unique=true, nullable=true, options={"collation":"utf8_bin"})
-     * @JMS\Expose()
-     */
-    protected $code;
+	/**
+	 * @var string
+	 * @Assert\NotBlank(message="The code should not be blank")
+	 * @ORM\Column(name="code", type="string", unique=true, nullable=true, options={"collation":"utf8_bin"})
+	 * @JMS\Expose()
+	 */
+	protected $code;
 
-    /**
-     * @var string
-     * @Assert\NotBlank(message="The url should not be blank")
-     * @Assert\Length(
-     *   max = 255,
-     *   maxMessage = "The url cannot be longer than {{ limit }} characters"
-     * )
-     * @ORM\Column(name="url", type="string", length=255)
-     * @JMS\Expose()
-     */
-    protected $url;
+	/**
+	 * @var string
+	 * @Assert\NotBlank(message="The url should not be blank")
+	 * @Assert\Length(
+	 *   max = 2000,
+	 *   maxMessage = "The url cannot be longer than {{ limit }} characters"
+	 * )
+	 * @ORM\Column(name="url", type="text", length=2000)
+	 * @JMS\Expose()
+	 */
+	protected $url;
 
-    /**
-     * @var DateTime
-     * @ORM\Column(name="created", type="datetime")
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'UTC'>")
-     * @JMS\Expose()
-     */
-    private $created;
 
-    /**
-     * ShortUrl constructor.
-     */
-    public function __construct()
-    {
-        $this->created = new DateTime();
-    }
+	/**
+	 * @var DateTime
+	 * @ORM\Column(name="created", type="datetime")
+	 * @JMS\Type("DateTime<'Y-m-d H:i:s', 'UTC'>")
+	 * @JMS\Expose()
+	 */
+	private $created;
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+	/**
+	 * ShortUrl constructor.
+	 */
+	public function __construct()
+	{
+		$this->created = new DateTime();
+	}
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
+	/**
+	 * {@inheritdoc}
+	 */
+	public function getId()
+	{
+		return $this->id;
+	}
 
-    /**
-     * {@inheritdoc}
-     */
-    public function setCode($code)
-    {
-        $this->code = $code;
+	/**
+	 * {@inheritdoc}
+	 */
+	public function getCode()
+	{
+		return $this->code;
+	}
 
-        return $this;
-    }
+	/**
+	 * {@inheritdoc}
+	 */
+	public function setCode($code)
+	{
+		$this->code = $code;
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getUrl()
-    {
-        return $this->url;
-    }
+		return $this;
+	}
 
-    /**
-     * {@inheritdoc}
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
+	/**
+	 * {@inheritdoc}
+	 */
+	public function getUrl()
+	{
+		return $this->url;
+	}
 
-        return $this;
-    }
+	/**
+	 * {@inheritdoc}
+	 */
+	public function setUrl($url)
+	{
+		$this->url = $url;
 
-    /**
-     * @return DateTime
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
+		return $this;
+	}
 
-    /**
-     * @param DateTime $created
-     * @return ShortUrl
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
+	/**
+	 * @return DateTime
+	 */
+	public function getCreated()
+	{
+		return $this->created;
+	}
 
-        return $this;
-    }
+	/**
+	 * @param DateTime $created
+	 * @return ShortUrl
+	 */
+	public function setCreated($created)
+	{
+		$this->created = $created;
+
+		return $this;
+	}
 }

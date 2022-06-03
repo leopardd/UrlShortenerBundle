@@ -14,30 +14,30 @@ use Symfony\Component\DependencyInjection\Loader;
  */
 class LeoparddUrlShortenerExtension extends Extension
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function load(array $configs, ContainerBuilder $container)
-    {
-        $configuration = new Configuration();
-        $config = $this->processConfiguration($configuration, $configs);
+	/**
+	 * {@inheritdoc}
+	 */
+	public function load(array $configs, ContainerBuilder $container)
+	{
+		$configuration = new Configuration();
+		$config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-        $loader->load('services.yml');
+		$loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+		$loader->load('services.yml');
 
-        // Hashids Config
-        if (isset($config['hashids'])) {
-            if (isset($config['hashids']['salt'])) {
-                $container->setParameter('leopardd_url_shortener.hashids.salt', $config['hashids']['salt']);
-            }
+		// Hashids Config
+		if (isset($config['hashids'])) {
+			if (isset($config['hashids']['salt'])) {
+				$container->setParameter('leopardd_url_shortener.hashids.salt', $config['hashids']['salt']);
+			}
 
-            if (isset($config['hashids']['min_length'])) {
-                $container->setParameter('leopardd_url_shortener.hashids.min_length', $config['hashids']['min_length']);
-            }
+			if (isset($config['hashids']['min_length'])) {
+				$container->setParameter('leopardd_url_shortener.hashids.min_length', $config['hashids']['min_length']);
+			}
 
-            if (isset($config['hashids']['alphabet'])) {
-                $container->setParameter('leopardd_url_shortener.hashids.alphabet', $config['hashids']['alphabet']);
-            }
-        }
-    }
+			if (isset($config['hashids']['alphabet'])) {
+				$container->setParameter('leopardd_url_shortener.hashids.alphabet', $config['hashids']['alphabet']);
+			}
+		}
+	}
 }
