@@ -5,34 +5,14 @@ parameters:
     leopardd_url_shortener.class.entity: Leopardd\Bundle\UrlShortenerBundle\Entity\ShortUrl
     leopardd_url_shortener.class.factory: Leopardd\Bundle\UrlShortenerBundle\Factory\ShortUrlFactory
     leopardd_url_shortener.class.repository: Leopardd\Bundle\UrlShortenerBundle\Repository\ShortUrlRepository
+
 services:
-    _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
-        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
-        public: false
-
-    Leopardd\Bundle\UrlShortenerBundle\:
-        resource: '../../'
-        exclude:
-            - '../../DependencyInjection/'
-            - '../../Resources/'
-            - '../../Tests/'
-            - '../../spec/'
-            - '../../Event/'
-            - '../../Exception/'
-            - '../../Entity/'
-
     leopardd_url_shortener.hash.hashid:
         class: Hashids\Hashids
         arguments:
             - "%leopardd_url_shortener.hashids.salt%"
             - "%leopardd_url_shortener.hashids.min_length%"
             - "%leopardd_url_shortener.hashids.alphabet%"
-
-    leopardd_url_shortener.class.factory:
-        class: Leopardd\Bundle\UrlShortenerBundle\Factory\ShortUrlFactory
-        arguments:
-            - "ShortUrl"
 
     leopardd_url_shortener.factory.short_url:
         class: "%leopardd_url_shortener.class.factory%"
@@ -41,10 +21,10 @@ services:
 
     leopardd_url_shortener.repository.short_url:
         class: "%leopardd_url_shortener.class.repository%"
-#        factory: 'doctrine.orm.entity_manager:getRepository'
+        factory: 'doctrine.orm.entity_manager:getRepository'
         arguments:
-            - '@Doctrine\Common\Persistence\ManagerRegistry'
             - "%leopardd_url_shortener.class.entity%"
+
 
 #    leopardd_url_shortener.service.encode:
 #        class: Leopardd\Bundle\UrlShortenerBundle\Service\EncodeService
@@ -52,7 +32,7 @@ services:
 #            - "@leopardd_url_shortener.hash.hashid"
 #            - "@leopardd_url_shortener.repository.short_url"
 #            - "@event_dispatcher"
-
+#
 #    leopardd_url_shortener.service.redirect:
 #        class: Leopardd\Bundle\UrlShortenerBundle\Service\RedirectService
 #        arguments:
