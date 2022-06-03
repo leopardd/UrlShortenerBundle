@@ -7,6 +7,10 @@ parameters:
     leopardd_url_shortener.class.repository: Leopardd\Bundle\UrlShortenerBundle\Repository\ShortUrlRepository
 
 services:
+
+    Leopardd\Bundle\UrlShortenerBundle\Controller:
+        resource: '../../Controller/'
+
     leopardd_url_shortener.hash.hashid:
         class: Hashids\Hashids
         arguments:
