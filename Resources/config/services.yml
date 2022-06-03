@@ -29,10 +29,14 @@ services:
             - "%leopardd_url_shortener.hashids.min_length%"
             - "%leopardd_url_shortener.hashids.alphabet%"
 
+    leopardd_url_shortener.class.factory:
+        arguments:
+            - "ShortUrl"
+
     leopardd_url_shortener.factory.short_url:
         class: "%leopardd_url_shortener.class.factory%"
         arguments:
-            - "ShortUrl"
+            - "%leopardd_url_shortener.class.entity%"
 
     leopardd_url_shortener.repository.short_url:
         class: "%leopardd_url_shortener.class.repository%"
