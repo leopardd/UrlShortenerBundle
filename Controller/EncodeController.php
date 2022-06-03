@@ -24,12 +24,6 @@ class EncodeController extends AbstractController
      */
     public function indexAction(Request $request)
     {
-        /** @var ShortUrlFactory $shortUrlFactory */
-//        $shortUrlFactory = $this->get('leopardd_url_shortener.factory.short_url');
-
-
-        /** @var EncodeService $encodeService */
-//        $encodeService = $this->get('leopardd_url_shortener.service.encode');
 
         $url = $request->request->get('url');
 

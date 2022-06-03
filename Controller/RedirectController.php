@@ -21,8 +21,6 @@ class RedirectController extends AbstractController
      */
     public function indexAction($code)
     {
-        /** @var RedirectService $redirectService */
-//        $redirectService = $this->get('leopardd_url_shortener.service.redirect');
 
         $response = $this->redirectService->getRedirectResponse($code);
         if ($response === null) throw new InvalidCodeException();
