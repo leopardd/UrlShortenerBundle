@@ -3,7 +3,7 @@ parameters:
     leopardd_url_shortener.hashids.min_length: 5
     leopardd_url_shortener.hashids.alphabet: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890
     leopardd_url_shortener.class.entity: Leopardd\Bundle\UrlShortenerBundle\Entity\ShortUrl
-#    leopardd_url_shortener.class.factory: Leopardd\Bundle\UrlShortenerBundle\Factory\ShortUrlFactory
+    leopardd_url_shortener.class.factory: Leopardd\Bundle\UrlShortenerBundle\Factory\ShortUrlFactory
     leopardd_url_shortener.class.repository: Leopardd\Bundle\UrlShortenerBundle\Repository\ShortUrlRepository
 services:
     _defaults:
@@ -30,7 +30,7 @@ services:
             - "%leopardd_url_shortener.hashids.alphabet%"
 
     leopardd_url_shortener.class.factory:
-        class: Leopardd\Bundle\UrlShortenerBundle\Factory\ShortUrlFactory
+        class: '%leopardd_url_shortener.class.factory%'
         arguments:
             - "ShortUrl"
 
