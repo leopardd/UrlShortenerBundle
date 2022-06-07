@@ -4,6 +4,8 @@ namespace Leopardd\Bundle\UrlShortenerBundle\Factory;
 
 use Leopardd\Bundle\UrlShortenerBundle\Entity\ShortUrlInterface;
 
+// ok
+
 /**
  * Interface ShortUrlFactoryInterface
  * @package Leopardd\Bundle\UrlShortenerBundle\Factory

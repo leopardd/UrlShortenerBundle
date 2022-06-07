@@ -2,6 +2,8 @@
 
 namespace Leopardd\Bundle\UrlShortenerBundle\Repository;
 
+// ok
+
 use Leopardd\Bundle\UrlShortenerBundle\Entity\ShortUrlInterface;
 
 /**
